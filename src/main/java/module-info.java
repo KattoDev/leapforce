@@ -3,5 +3,6 @@ module com.kattodev.leapforce {
     requires javafx.fxml;
 
     requires org.kordamp.bootstrapfx.core;
+    requires java.sql;
 
 }
