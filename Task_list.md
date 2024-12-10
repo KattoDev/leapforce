@@ -1,0 +1,34 @@
+# App tasklist
+
+-
+    - [ ] New user registration
+-
+    - [ ] List registered users
+-
+    -
+        - [ ] Filter list
+-
+    - [ ] Update user info
+-
+    - [ ] Departments creation
+-
+    -
+        - [ ] Department administration
+-
+    -
+        - [ ] bind users to departments
+-
+    -
+        - [ ] list users within departments
+-
+    - [ ] Create projects
+-
+    -
+        - [ ] Create tasks
+-
+    -
+        - [ ] bind projects and tasks to users and departments
+-
+    - [ ] generation of reports
+-
+    - [ ] Auth
