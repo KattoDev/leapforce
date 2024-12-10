@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane layoutX="247.0" layoutY="200.0" prefHeight="200.0" prefWidth="307.0">
+         <children>
+            <Pane layoutY="136.0" prefHeight="50.0" prefWidth="300.0">
+               <children>
+                  <Label layoutX="109.0" layoutY="16.0" text="Iniciar Sesión" />
+               </children>
+            </Pane>
+            <Pane prefHeight="50.0" prefWidth="300.0">
+               <children>
+                  <TextField layoutX="50.0" layoutY="5.0" prefHeight="40.0" prefWidth="245.0" promptText="Correo" />
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+            <Pane layoutY="57.0" prefHeight="50.0" prefWidth="300.0">
+               <children>
+                  <PasswordField layoutX="50.0" layoutY="5.0" prefHeight="40.0" prefWidth="245.0" promptText="Contraseña" />
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</Pane>
