@@ -13,41 +13,39 @@ LEAPFORCE is an app for team management with functions for
 
 ## TECHNOLOGIES USED
 
+- Java
 - Java FX
-- Mysql
-- JSON
 
 ## DEVELOPMENT PATTERNS
 
 - MVC
 - Singleton
 
-## TECHNICAL REQUIREMENTS
+## ASSETS
+- APP PROTOTYPE
+-
+    - TO BE LOAD
+
+- ICONS
+- 
+    - [Material Line Icons by Vjacheslav Trushkin](https://icon-sets.iconify.design/line-md/)
+
+- FONTS
+-
+    - [Megrim](https://fonts.google.com/specimen/Megrim)
+-
+    - [Pridi](https://fonts.google.com/specimen/Pridi)
+
+- BACKEND
+- 
+    - [API | SUBJECT TO MODIFICATIONS](https://github.com/KattoDev/SistemaDeEmpleadosAPI)
 
 ---
 
-## Links e información varia
-
-- [Prototipo de la app](https://www.figma.com/proto/NvR5mXWVP5miLtQlZYLYRy/Untitled?node-id=1-2&t=OZ5Wwr5xMCDCCAeD-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2)
-
-- TIPOGRAFIAS
--
-    - [INTER (TIPOGRAFIA)](https://fonts.google.com/specimen/Inter)
--
-    - [LilitaOne (TIPOGRAFIA)](https://fonts.google.com/specimen/Lilita+One)
-
-- LIBRERIAS
--
-    - [project handler (DEPRECATED)](https://github.com/RitzzRiver/Project-handler)
-
-- [Backend](https://github.com/KattoDev/SistemaDeEmpleadosAPI)
-
----
-
-### Nombre del desarrollador
+### DEVELOPER NAME
 
 Kristopher Alexis Verjel Rincón
 
-### Instructor líder
+### PROJECT LEADER
 
 Mgrt. Yesica Paola Carrascal Quintero
