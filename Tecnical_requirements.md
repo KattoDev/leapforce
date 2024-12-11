@@ -23,10 +23,6 @@ Desarrolle un sistema de gestión de empleados en Java que cumpla con los siguie
         El sistema debe permitir la asignación de tareas y proyectos a los empleados. Debe mantener un registro de las tareas asignadas, el estado de avance y las fechas de entrega.
     </li>
     <li>
-        <b>Gestión de permisos y ausencias:</b><br>
-        El sistema debe permitir a los empleados solicitar permisos o reportar ausencias
-    </li>
-    <li>
         <b>Generación de informes y estadísticas:</b><br>
         El sistema debe generar informes y estadísticas sobre el rendimiento de los empleados, como el número de tareas completadas, el promedio de asistencia, la distribución de empleados por departamento, entre otros.
     </li>
@@ -36,16 +32,20 @@ Desarrolle un sistema de gestión de empleados en Java que cumpla con los siguie
     </li>
     <li>
         <details>
-            <summary><b>OMITIDO</b></summary>
-            <b>Registro de asistencia:</b><br>
+            <summary><b>OMITIDO - Registro de asistencia</b></summary>
             El sistema debe permitir el registro de la asistencia de los empleados, incluyendo la hora de entrada y salida. Debe generar reportes de asistencia y calcular el total de horas trabajadas por cada empleado.
         </details>    
     </li>
     <li>
         <details>
-            <summary><b>OMITIDO</b></summary>
-            <b>Evaluación de desempeño:</b><br>
+            <summary><b>OMITIDO - Evaluación de desempeño</b></summary>
             El sistema debe permitir realizar evaluaciones periódicas del desempeño de los empleados. Debe permitir la creación de criterios de evaluación, asignar puntuaciones y generar informes de desempeño individual y grupal.
         </details>
-    </li> 
+    </li>
+    <li>
+        <details>
+            <summary><b>OMITIDO - Gestión de permisos y ausencias</b></summary>
+        El sistema debe permitir a los empleados solicitar permisos o reportar ausencias
+        </details>
+    </li>
 </ol>
