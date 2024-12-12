@@ -1,6 +1,10 @@
 package com.kattodev.leapforce.Models;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParser;
+
 import java.util.Date;
+
 
 public class User {
     private long UID;
@@ -13,6 +17,7 @@ public class User {
     private String position;
     private long salary;
     private String password;
+    private boolean isAdmin;
 
 
     public User() {
@@ -23,7 +28,7 @@ public class User {
         this.password = password;
     }
 
-    public User(long UID, String name, String address, Date birthDay, long phone, String email, long department, String position, long salary, String password) {
+    public User(long UID, String name, String address, Date birthDay, long phone, String email, long department, String position, long salary, String password, boolean isAdmin) {
         this.UID = UID;
         this.name = name;
         this.address = address;
@@ -34,6 +39,7 @@ public class User {
         this.position = position;
         this.salary = salary;
         this.password = password;
+        this.isAdmin = isAdmin;
     }
 
 
@@ -115,5 +121,31 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+
+    public JsonArray getAsJSONArray() {
+        String jsonString = "[{" +
+                "\"name\": \"" + getName() + "\"," +
+                "\"address\": \"" + getAddress() + "\"," +
+                "\"birthday\": \"" + getBirthDay() + "\"," +
+                "\"phoneNumber\": \"" + getPhone() + "\"," +
+                "\"email\": \"" + getEmail() + "\"," +
+                "\"position\": \"" + getPosition() + "\"," +
+                "\"salary\": " + getSalary() + "," +
+                "\"password\": \"" + getPassword() + "\"," +
+                "\"department\": \"" + getDepartment() + "\"," +
+                "\"isAdmin\": " + getIsAdmin() +
+                "}]";
+
+        return JsonParser.parseString(jsonString).getAsJsonArray();
     }
 }
