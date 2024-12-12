@@ -1,0 +1,16 @@
+.input {
+	-fx-background-radius: 20px;
+	-fx-background-color: rgba(211, 211, 211, 0.5);
+}
+
+.button {
+    -fx-background-radius: 20px;
+    -fx-background-color: rgba(211, 211, 211, 0.5);
+}
+
+.button:hover {
+    -fx-background-color: rgba(211, 211, 211, 0.7);
+    -fx-cursor: hand;
+}
+
+
