@@ -1,35 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kattodev.leapforce.Controllers.Login">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
-      <Pane layoutX="247.0" layoutY="200.0" prefHeight="200.0" prefWidth="307.0">
+      <Pane layoutX="150.0" layoutY="104.0" prefHeight="50.0" prefWidth="300.0" styleClass="input" stylesheets="@../css/login.css">
          <children>
-            <Pane layoutY="136.0" prefHeight="50.0" prefWidth="300.0">
-               <children>
-                  <Label layoutX="109.0" layoutY="16.0" text="Iniciar Sesión" />
-               </children>
-            </Pane>
-            <Pane prefHeight="50.0" prefWidth="300.0">
-               <children>
-                  <TextField layoutX="50.0" layoutY="5.0" prefHeight="40.0" prefWidth="245.0" promptText="Correo" />
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </Pane>
-            <Pane layoutY="57.0" prefHeight="50.0" prefWidth="300.0">
-               <children>
-                  <PasswordField layoutX="50.0" layoutY="5.0" prefHeight="40.0" prefWidth="245.0" promptText="Contraseña" />
-                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </Pane>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/account.png" />
+               </image>
+            </ImageView>
+            <TextField floatText="Correo:" layoutX="59.0" layoutY="7.0" prefHeight="28.0" prefWidth="230.0" />
+         </children>
+         </Pane>
+      <Pane layoutX="150.0" layoutY="186.0" prefHeight="50.0" prefWidth="300.0" styleClass="input" stylesheets="@../css/login.css">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/eye.png" />
+               </image>
+            </ImageView>
+            <TextField floatText="Contraseña:" layoutX="60.0" layoutY="7.0" prefHeight="28.0" prefWidth="230.0" />
          </children>
       </Pane>
+      <Pane fx:id="btn_login" layoutX="150.0" layoutY="246.0" onMouseClicked="#btn_login_click" prefHeight="50.0" prefWidth="300.0" styleClass="button" stylesheets="@../css/login.css">
+         <children>
+            <Label layoutX="76.0" layoutY="8.0" text="Iniciar sesión">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="235.0" layoutY="56.0" text="LEAPFORCE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
