@@ -1,7 +1,9 @@
 package com.kattodev.leapforce.Models;
 
 import DebugHandler.Debug;
-import com.kattodev.leapforce.Controllers.Alerts;
+import com.kattodev.leapforce.Utils.ActualUser;
+import com.kattodev.leapforce.Utils.Alerts;
+import com.kattodev.leapforce.Utils.SystemMessages;
 import javafx.scene.control.Alert;
 
 import java.sql.Connection;
@@ -155,6 +157,7 @@ public class User {
 
     /**
      * Auths a user with email and password.
+     *
      * @param databaseConnection the {@link com.kattodev.leapforce.APIClient.DatabaseConnection} connection
      * @return true if the {@link User} is authorized to log in.
      */
@@ -196,12 +199,13 @@ public class User {
 
     /**
      * Inserts a {@link User} into the database.
+     *
      * @param databaseConnection the {@link com.kattodev.leapforce.APIClient.DatabaseConnection} connection
      */
     public void AddUser(Connection databaseConnection) {
-        String query = "INSERT INTO users" +
+        String query = "INSERT INTO users " +
                 "(name, address, birthDay, phone, email, department, position," +
-                "salary, password) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "salary, password, isAdmin) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = databaseConnection.prepareStatement(query)) {
 
@@ -214,6 +218,7 @@ public class User {
             pstmt.setString(7, getPosition());
             pstmt.setLong(8, getSalary());
             pstmt.setString(9, String.valueOf(getPhone()));
+            pstmt.setBoolean(10, getIsAdmin());
 
             pstmt.executeUpdate();
             Alerts.showAlert(
@@ -224,7 +229,7 @@ public class User {
             Alerts.showAlert(Alert.AlertType.ERROR,
                     SystemMessages.GenericError,
                     "No se pudo registrar el empleado\n" +
-                    "Código de error: " + sqlException.getMessage());
+                            "Código de error: " + sqlException.getMessage());
             new Debug(sqlException.getMessage());
         }
     }
@@ -232,10 +237,11 @@ public class User {
     /**
      * Updates the {@link User} information like name, email, phone, address, birthDay, position, salary and password
      * based on the {@link User}'s UID
+     *
      * @param databaseConnection the {@link com.kattodev.leapforce.APIClient.DatabaseConnection} connection
      */
     public void UpdateUser(Connection databaseConnection) {
-        String query = "UPDATE users" +
+        String query = "UPDATE users " +
                 "SET name = ?, email = ?, phone = ?, address = ?, birthDay = ?," +
                 "position = ?, salary = ?, password = ? WHERE UID = ?";
 
@@ -251,18 +257,18 @@ public class User {
             pstmt.setString(8, getPassword());
             pstmt.setLong(9, getUID());
 
+            new Debug(pstmt.toString());
             pstmt.executeUpdate();
             Alerts.showAlert(
                     Alert.AlertType.INFORMATION,
                     null,
                     "se ha actualizado la información del usuario");
-        }
-        catch (SQLException sqlException) {
+        } catch (SQLException sqlException) {
             Alerts.showAlert(
                     Alert.AlertType.ERROR,
                     SystemMessages.GenericError,
                     "No se pudo actualizar la información del usuario\n" +
-                    "Código de error: " + sqlException.getMessage());
+                            "Código de error: " + sqlException.getMessage());
             new Debug(sqlException.getMessage());
         }
     }
