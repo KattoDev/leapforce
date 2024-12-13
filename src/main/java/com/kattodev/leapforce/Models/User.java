@@ -1,9 +1,14 @@
 package com.kattodev.leapforce.Models;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonParser;
+import DebugHandler.Debug;
+import com.kattodev.leapforce.Controllers.Alerts;
+import javafx.scene.control.Alert;
 
-import java.util.Date;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Date;
 
 
 public class User {
@@ -41,7 +46,6 @@ public class User {
         this.password = password;
         this.isAdmin = isAdmin;
     }
-
 
     public long getUID() {
         return UID;
@@ -132,20 +136,134 @@ public class User {
     }
 
 
-    public JsonArray getAsJSONArray() {
-        String jsonString = "[{" +
-                "\"name\": \"" + getName() + "\"," +
-                "\"address\": \"" + getAddress() + "\"," +
-                "\"birthday\": \"" + getBirthDay() + "\"," +
-                "\"phoneNumber\": \"" + getPhone() + "\"," +
-                "\"email\": \"" + getEmail() + "\"," +
-                "\"position\": \"" + getPosition() + "\"," +
-                "\"salary\": " + getSalary() + "," +
-                "\"password\": \"" + getPassword() + "\"," +
-                "\"department\": \"" + getDepartment() + "\"," +
-                "\"isAdmin\": " + getIsAdmin() +
-                "}]";
+    @Override
+    public String toString() {
+        return "User{" +
+                "UID=" + UID +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", birthDay=" + birthDay +
+                ", phone=" + phone +
+                ", email='" + email + '\'' +
+                ", department=" + department +
+                ", position='" + position + '\'' +
+                ", salary=" + salary +
+                ", password='" + password + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
+    }
 
-        return JsonParser.parseString(jsonString).getAsJsonArray();
+    /**
+     * Auths a user with email and password.
+     * @param databaseConnection the {@link com.kattodev.leapforce.APIClient.DatabaseConnection} connection
+     * @return true if the {@link User} is authorized to log in.
+     */
+    public boolean Auth(Connection databaseConnection) {
+        String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+
+        try (PreparedStatement pstmt = databaseConnection.prepareStatement(query)) {
+            pstmt.setString(1, this.email);
+            pstmt.setString(2, this.password);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (!rs.next()) {
+                    return false;
+                }
+
+                ActualUser.getInstance().setUser(
+                        new User(
+                                rs.getLong("UID"),
+                                rs.getString("name"),
+                                rs.getString("address"),
+                                rs.getDate("birthDay"),
+                                rs.getLong("phone"),
+                                this.email,
+                                rs.getLong("department"),
+                                rs.getString("position"),
+                                rs.getLong("salary"),
+                                this.password,
+                                rs.getBoolean("isAdmin")
+                        )
+                );
+                return true;
+            }
+
+        } catch (SQLException sqlException) {
+            new Debug("No se pudo hacer el proceso de AUTH");
+            return false;
+        }
+    }
+
+    /**
+     * Inserts a {@link User} into the database.
+     * @param databaseConnection the {@link com.kattodev.leapforce.APIClient.DatabaseConnection} connection
+     */
+    public void AddUser(Connection databaseConnection) {
+        String query = "INSERT INTO users" +
+                "(name, address, birthDay, phone, email, department, position," +
+                "salary, password) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement pstmt = databaseConnection.prepareStatement(query)) {
+
+            pstmt.setString(1, getName());
+            pstmt.setString(2, getAddress());
+            pstmt.setDate(3, getBirthDay());
+            pstmt.setLong(4, getPhone());
+            pstmt.setString(5, getEmail());
+            pstmt.setLong(6, getDepartment());
+            pstmt.setString(7, getPosition());
+            pstmt.setLong(8, getSalary());
+            pstmt.setString(9, String.valueOf(getPhone()));
+
+            pstmt.executeUpdate();
+            Alerts.showAlert(
+                    Alert.AlertType.INFORMATION,
+                    null,
+                    "Se ha registrado el nuevo empleado");
+        } catch (SQLException sqlException) {
+            Alerts.showAlert(Alert.AlertType.ERROR,
+                    SystemMessages.GenericError,
+                    "No se pudo registrar el empleado\n" +
+                    "Código de error: " + sqlException.getMessage());
+            new Debug(sqlException.getMessage());
+        }
+    }
+
+    /**
+     * Updates the {@link User} information like name, email, phone, address, birthDay, position, salary and password
+     * based on the {@link User}'s UID
+     * @param databaseConnection the {@link com.kattodev.leapforce.APIClient.DatabaseConnection} connection
+     */
+    public void UpdateUser(Connection databaseConnection) {
+        String query = "UPDATE users" +
+                "SET name = ?, email = ?, phone = ?, address = ?, birthDay = ?," +
+                "position = ?, salary = ?, password = ? WHERE UID = ?";
+
+        try (PreparedStatement pstmt = databaseConnection.prepareStatement(query)) {
+
+            pstmt.setString(1, getName());
+            pstmt.setString(2, getEmail());
+            pstmt.setLong(3, getPhone());
+            pstmt.setString(4, getAddress());
+            pstmt.setDate(5, getBirthDay());
+            pstmt.setString(6, getPosition());
+            pstmt.setLong(7, getSalary());
+            pstmt.setString(8, getPassword());
+            pstmt.setLong(9, getUID());
+
+            pstmt.executeUpdate();
+            Alerts.showAlert(
+                    Alert.AlertType.INFORMATION,
+                    null,
+                    "se ha actualizado la información del usuario");
+        }
+        catch (SQLException sqlException) {
+            Alerts.showAlert(
+                    Alert.AlertType.ERROR,
+                    SystemMessages.GenericError,
+                    "No se pudo actualizar la información del usuario\n" +
+                    "Código de error: " + sqlException.getMessage());
+            new Debug(sqlException.getMessage());
+        }
     }
 }
