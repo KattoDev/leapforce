@@ -23,23 +23,23 @@ LEAPFORCE is an app for team management with functions for
 - Singleton
 
 ## ASSETS
+
 - APP PROTOTYPE
--
-    - TO BE LOAD
+- - TO BE LOAD
 
 - ICONS
-- 
-    - [Material Line Icons by Vjacheslav Trushkin](https://icon-sets.iconify.design/line-md/)
+- - [Material Line Icons by Vjacheslav Trushkin](https://icon-sets.iconify.design/line-md/)
 
 - FONTS
--
-    - [Megrim](https://fonts.google.com/specimen/Megrim)
--
-    - [Pridi](https://fonts.google.com/specimen/Pridi)
+- - [Megrim](https://fonts.google.com/specimen/Megrim)
+- - [Pridi](https://fonts.google.com/specimen/Pridi)
 
 - BACKEND
--
-    - XAMPP
+- - XAMPP
+
+- APP COLORS
+- <img src="/leapforceapp.png"/>
+
 ---
 
 ### DEVELOPER NAME
