@@ -2,8 +2,8 @@ package com.kattodev.leapforce.APIClient;
 
 import DebugHandler.Debug;
 
-import com.kattodev.leapforce.Controllers.Alerts;
-import com.kattodev.leapforce.Models.SystemMessages;
+import com.kattodev.leapforce.Utils.Alerts;
+import com.kattodev.leapforce.Utils.SystemMessages;
 
 import javafx.scene.control.Alert;
 
