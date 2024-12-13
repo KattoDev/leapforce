@@ -1,4 +1,6 @@
-package com.kattodev.leapforce.Models;
+package com.kattodev.leapforce.Utils;
+
+import com.kattodev.leapforce.Models.User;
 
 /**
  * Singleton class to get the Actual User within the app
