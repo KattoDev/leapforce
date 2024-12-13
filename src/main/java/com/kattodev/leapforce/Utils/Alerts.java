@@ -1,4 +1,4 @@
-package com.kattodev.leapforce.Controllers;
+package com.kattodev.leapforce.Utils;
 
 import javafx.scene.control.Alert;
 

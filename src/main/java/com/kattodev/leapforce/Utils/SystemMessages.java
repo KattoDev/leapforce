@@ -1,4 +1,4 @@
-package com.kattodev.leapforce.Models;
+package com.kattodev.leapforce.Utils;
 
 public class SystemMessages {
     public static String InternErrorTitle = "Error interno de la aplicación";

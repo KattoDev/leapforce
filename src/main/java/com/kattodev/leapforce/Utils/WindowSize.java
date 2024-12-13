@@ -1,4 +1,4 @@
-package com.kattodev.leapforce.Models;
+package com.kattodev.leapforce.Utils;
 
 public class WindowSize {
     private static final int[] login = {600, 400};
