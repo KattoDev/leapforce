@@ -1,8 +1,6 @@
 module com.kattodev.leapforce {
     requires javafx.fxml;
 
-    requires com.google.gson;
-
     requires org.kordamp.bootstrapfx.core;
 
     requires java.sql;
@@ -15,4 +13,8 @@ module com.kattodev.leapforce {
     exports com.kattodev.leapforce.Controllers;
     exports com.kattodev.leapforce.APIClient;
     opens com.kattodev.leapforce.APIClient to javafx.fxml;
+    exports com.kattodev.leapforce.Controllers.Components;
+    opens com.kattodev.leapforce.Controllers.Components to javafx.fxml;
+    exports com.kattodev.leapforce.Utils;
+    opens com.kattodev.leapforce.Utils to javafx.fxml;
 }
