@@ -15,6 +15,7 @@ LEAPFORCE is an app for team management with functions for
 
 - Java
 - Java FX
+- MySQL
 
 ## DEVELOPMENT PATTERNS
 
@@ -37,9 +38,8 @@ LEAPFORCE is an app for team management with functions for
     - [Pridi](https://fonts.google.com/specimen/Pridi)
 
 - BACKEND
-- 
-    - [API | SUBJECT TO MODIFICATIONS](https://github.com/KattoDev/SistemaDeEmpleadosAPI)
-
+-
+    - XAMPP
 ---
 
 ### DEVELOPER NAME
