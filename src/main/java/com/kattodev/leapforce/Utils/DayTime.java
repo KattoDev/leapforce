@@ -3,16 +3,21 @@ package com.kattodev.leapforce.Utils;
 import java.time.LocalTime;
 
 public class DayTime {
-    private final int localHour = LocalTime.now().getHour();
-
-    public String getDayGreeting(){
+    /**
+     * Gets the local hour to make a greeting depending on the day time
+     * @return
+     * "Buenos dias" if its between 6:00 -- 12:00 |
+     * "Buenas tardes" if its between 13:00 -- 18:00 |
+     * "Buenas noches" if its between 19:00 -- 5:00
+     */
+    public String getDayGreeting() {
+        int localHour = LocalTime.now().getHour();
         String greeting;
-        if (localHour >= 0 && localHour <= 12){
+        if (localHour >= 6 && localHour <= 12) {
             greeting = "Buenos días";
         } else if (localHour >= 13 && localHour <= 18) {
             greeting = "Buenas tardes";
-        }
-        else {
+        } else {
             greeting = "Buenas noches";
         }
         return greeting;
