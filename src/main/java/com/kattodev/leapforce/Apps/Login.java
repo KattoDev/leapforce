@@ -1,6 +1,6 @@
 package com.kattodev.leapforce.Apps;
 
-import com.kattodev.leapforce.Models.WindowSize;
+import com.kattodev.leapforce.Utils.WindowSize;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
