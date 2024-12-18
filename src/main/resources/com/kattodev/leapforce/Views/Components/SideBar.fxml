@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
+      prefWidth="260.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.kattodev.leapforce.Controllers.Components.SideBar">
+    <children>
+        <Pane layoutX="16.0" layoutY="7.0" onMouseClicked="#btn_user_clicked" onMouseEntered="#btn_user_hover"
+              onMouseExited="#btn_user_notHover" prefHeight="30.0" prefWidth="30.0" styleClass="button"
+              stylesheets="@../../css/login.css">
+            <children>
+                <ImageView fx:id="ico_user" fitHeight="27.0" fitWidth="27.0" layoutX="2.0" pickOnBounds="true"
+                           preserveRatio="true"/>
+            </children>
+        </Pane>
+        <Label fx:id="lbl_greeting" layoutX="53.0" layoutY="5.0" text="Greetings"/>
+        <Label fx:id="lbl_username" layoutX="54.0" layoutY="21.0" text="USER.NAME"/>
+        <Pane fx:id="btn_logout" layoutX="57.0" layoutY="654.0" prefHeight="30.0" prefWidth="150.0" styleClass="button"
+              stylesheets="@../../css/login.css">
+            <children>
+                <Label layoutX="33.0" layoutY="6.0" text="Cerrar Sesión"/>
+            </children>
+        </Pane>
+    </children>
+</Pane>
