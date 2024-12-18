@@ -15,6 +15,8 @@ module com.kattodev.leapforce {
     opens com.kattodev.leapforce.APIClient to javafx.fxml;
     exports com.kattodev.leapforce.Controllers.Components;
     opens com.kattodev.leapforce.Controllers.Components to javafx.fxml;
+    exports com.kattodev.leapforce.Controllers.Modules;
+    opens com.kattodev.leapforce.Controllers.Modules to javafx.fxml;
     exports com.kattodev.leapforce.Utils;
     opens com.kattodev.leapforce.Utils to javafx.fxml;
 }
