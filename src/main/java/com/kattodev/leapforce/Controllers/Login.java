@@ -1,17 +1,12 @@
 package com.kattodev.leapforce.Controllers;
 
 import DebugHandler.Debug;
-
 import com.kattodev.leapforce.APIClient.DatabaseConnection;
-
-import com.kattodev.leapforce.Apps.SideBar;
-import com.kattodev.leapforce.Utils.ActualUser;
-import com.kattodev.leapforce.Utils.SystemMessages;
+import com.kattodev.leapforce.Apps.Dashboard;
 import com.kattodev.leapforce.Models.User;
-
 import com.kattodev.leapforce.Utils.Alerts;
+import com.kattodev.leapforce.Utils.SystemMessages;
 import javafx.fxml.FXML;
-
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -32,23 +27,28 @@ public class Login {
         String password = txt_password.getText();
 
         User tempUser = new User(email, password);
+
         if (!(tempUser.Auth(DatabaseConnection.getInstance().connection))) {
             Alerts.showAlert(Alert.AlertType.WARNING, SystemMessages.LoginErrorTitle, SystemMessages.LoginErrorBody);
         } else {
+            // dispose the current Stage
+            Stage currentStage = (Stage) ((javafx.scene.Node) mouseEvent.getSource()).getScene().getWindow();
+            currentStage.close();
 
-            Stage stage = (Stage) ((javafx.scene.Node) mouseEvent.getSource()).getScene().getWindow();
-            stage.close();
-
-            // Lanzar el Dashboard
+            // Launch the dashboard
             try {
-                SideBar sideBar = new SideBar();
-                Stage sideBarStage = new Stage();
-                sideBar.start(sideBarStage);
-            } catch (NullPointerException nullPointerException) {
-                nullPointerException.getCause();
-            }
+                Dashboard dashboardScene = new Dashboard();
+                Stage dashboardStage = new Stage();
+                dashboardScene.start(dashboardStage);
 
-            new Debug(ActualUser.getInstance().getUser().toString());
+            } catch (NullPointerException nullPointerException) {
+                Alerts.showAlert(
+                        Alert.AlertType.ERROR,
+                        SystemMessages.InternErrorTitle,
+                        "Se ha producido un error con la aplicación\n" +
+                        "Código de error:\n\n" + nullPointerException.getCause());
+                new Debug(nullPointerException.getMessage());
+            }
         }
     }
 }
