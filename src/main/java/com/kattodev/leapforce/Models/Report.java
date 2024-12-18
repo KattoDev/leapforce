@@ -4,7 +4,7 @@ import java.sql.Blob;
 import java.util.Date;
 
 public class Report {
-    private long IID;
+    private long RID;
     private Date date;
     private Blob content; // TODO FIX THIS TO STORE A .PDF
 
@@ -12,19 +12,19 @@ public class Report {
     public Report() {
     }
 
-    public Report(long IID, Date date, Blob content) {
-        this.IID = IID;
+    public Report(long RID, Date date, Blob content) {
+        this.RID = RID;
         this.date = date;
         this.content = content;
     }
 
 
-    public long getIID() {
-        return IID;
+    public long getRID() {
+        return RID;
     }
 
-    public void setIID(long IID) {
-        this.IID = IID;
+    public void setRID(long RID) {
+        this.RID = RID;
     }
 
     public Date getDate() {

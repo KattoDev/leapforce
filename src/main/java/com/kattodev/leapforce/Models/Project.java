@@ -7,14 +7,14 @@ public class Project {
     private String name;
     private String description;
     private Date endDate;
-    private int department;
+    private long department;
     private boolean finished;
 
 
     public Project() {
     }
 
-    public Project(long PID, String name, String description, Date endDate, int department, boolean finished) {
+    public Project(long PID, String name, String description, Date endDate, long department, boolean finished) {
         this.PID = PID;
         this.name = name;
         this.description = description;
@@ -56,11 +56,11 @@ public class Project {
         this.endDate = endDate;
     }
 
-    public int getDepartment() {
+    public long getDepartment() {
         return department;
     }
 
-    public void setDepartment(int department) {
+    public void setDepartment(long department) {
         this.department = department;
     }
 

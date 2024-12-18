@@ -3,7 +3,7 @@ package com.kattodev.leapforce.Models;
 import java.util.Date;
 
 public class Task {
-    private long PID;
+    private long TID;
     private String name;
     private String description;
     private Date endDate;
@@ -15,8 +15,8 @@ public class Task {
     public Task() {
     }
 
-    public Task(long PID, String name, String description, Date endDate, long user, long project, boolean finished) {
-        this.PID = PID;
+    public Task(long TID, String name, String description, Date endDate, long user, long project, boolean finished) {
+        this.TID = TID;
         this.name = name;
         this.description = description;
         this.endDate = endDate;
@@ -26,12 +26,12 @@ public class Task {
     }
 
 
-    public long getPID() {
-        return PID;
+    public long getTID() {
+        return TID;
     }
 
-    public void setPID(long PID) {
-        this.PID = PID;
+    public void setTID(long TID) {
+        this.TID = TID;
     }
 
     public String getName() {
