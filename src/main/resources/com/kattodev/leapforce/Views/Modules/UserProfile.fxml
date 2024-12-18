@@ -4,8 +4,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kattodev.leapforce.Controllers.Modules.UserProfile">
    <children>
       <Pane fx:id="container_infoBar" layoutX="760.0" prefHeight="720.0" prefWidth="260.0">
          <children>
@@ -15,21 +14,21 @@
                </font>
             </Label>
             <Label layoutX="14.0" layoutY="89.0" text="Nombre:" />
-            <Label layoutX="14.0" layoutY="110.0" text="USER.NAME" />
+            <Label fx:id="lbl_user_name" layoutX="14.0" layoutY="110.0" text="USER.NAME" />
             <Label layoutX="14.0" layoutY="141.0" text="Direccion de domicilio:" />
-            <Label layoutX="14.0" layoutY="162.0" text="USER.ADDRESS" />
+            <Label fx:id="lbl_user_address" layoutX="14.0" layoutY="162.0" text="USER.ADDRESS" />
             <Label layoutX="14.0" layoutY="193.0" text="Fecha de cumpleaños:" />
-            <Label layoutX="14.0" layoutY="214.0" text="USER.BIRTHDAY" />
+            <Label fx:id="lbl_user_birthday" layoutX="14.0" layoutY="214.0" text="USER.BIRTHDAY" />
             <Label layoutX="14.0" layoutY="245.0" text="Numero telefonico:" />
-            <Label layoutX="14.0" layoutY="266.0" text="USER.PHONE" />
+            <Label fx:id="lbl_user_phone" layoutX="14.0" layoutY="266.0" text="USER.PHONE" />
             <Label layoutX="14.0" layoutY="294.0" text="Correo electronico:" />
-            <Label layoutX="14.0" layoutY="315.0" text="USER.EMAIL" />
+            <Label fx:id="lbl_user_email" layoutX="14.0" layoutY="315.0" text="USER.EMAIL" />
             <Label layoutX="14.0" layoutY="346.0" text="Cargo:" />
-            <Label layoutX="14.0" layoutY="367.0" text="USER.POSITION" />
+            <Label fx:id="lbl_user_position" layoutX="14.0" layoutY="367.0" text="USER.POSITION" />
             <Label layoutX="14.0" layoutY="398.0" text="Departamento:" />
-            <Label layoutX="14.0" layoutY="419.0" text="USER.DEPARTMENT" />
+            <Label fx:id="lbl_user_department" layoutX="14.0" layoutY="419.0" text="USER.DEPARTMENT" />
             <Label layoutX="14.0" layoutY="450.0" text="Salario:" />
-            <Label layoutX="14.0" layoutY="471.0" text="USER.SALARY" />
+            <Label fx:id="lbl_user_salary" layoutX="14.0" layoutY="471.0" text="USER.SALARY" />
             <Pane fx:id="btn_EditUserInfo" layoutX="59.0" layoutY="537.0" onMouseClicked="#btn_login_click" prefHeight="30.0" prefWidth="150.0" styleClass="button" stylesheets="@../../css/login.css">
                <children>
                   <Label layoutX="6.0" layoutY="6.0" text="Editar la información">
