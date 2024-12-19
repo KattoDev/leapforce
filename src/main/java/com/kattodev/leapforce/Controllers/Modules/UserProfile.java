@@ -1,12 +1,10 @@
 package com.kattodev.leapforce.Controllers.Modules;
 
 import DebugHandler.Debug;
-
 import com.kattodev.leapforce.APIClient.DatabaseConnection;
 import com.kattodev.leapforce.Models.Department;
 import com.kattodev.leapforce.Models.User;
 import com.kattodev.leapforce.Utils.ActualUser;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;

@@ -6,11 +6,7 @@ import com.kattodev.leapforce.Utils.Alerts;
 import com.kattodev.leapforce.Utils.SystemMessages;
 import javafx.scene.control.Alert;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Date;
+import java.sql.*;
 
 
 public class User {
@@ -229,7 +225,7 @@ public class User {
             Alerts.showAlert(Alert.AlertType.ERROR,
                     SystemMessages.GenericError,
                     "No se pudo registrar el empleado\n" +
-                            "Código de error: " + sqlException.getMessage());
+                            SystemMessages.ErrorCode + sqlException.getMessage());
             new Debug(sqlException.getMessage());
         }
     }
@@ -268,7 +264,7 @@ public class User {
                     Alert.AlertType.ERROR,
                     SystemMessages.GenericError,
                     "No se pudo actualizar la información del usuario\n" +
-                            "Código de error: " + sqlException.getMessage());
+                            SystemMessages.ErrorCode + sqlException.getMessage());
             new Debug(sqlException.getMessage());
         }
     }

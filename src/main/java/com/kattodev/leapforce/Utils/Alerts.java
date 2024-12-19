@@ -6,9 +6,10 @@ public class Alerts {
 
     /**
      * Creates an alert that shows and wait user interaction
+     *
      * @param alertType the alert type
-     * @param title the alert title
-     * @param body the alert body
+     * @param title     the alert title
+     * @param body      the alert body
      */
     public static void showAlert(Alert.AlertType alertType, String title, String body) {
         Alert alert = new Alert(alertType);

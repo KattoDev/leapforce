@@ -7,10 +7,14 @@ import java.io.IOException;
 
 public class ModuleLoader {
 
+    public static final String sidebarComponentResource = "/com/kattodev/leapforce/Views/Components/SideBar.fxml";
+    public static final String dashboardMainModule = "/com/kattodev/leapforce/Views/Modules/UserProfile.fxml";
+
     /**
-     * static method for load a module inside a panel via FXML resource
+     * static method for load a module inside a panel via <b>FXML resource</b>
+     *
      * @param container the target container
-     * @param resource the FXML view resource
+     * @param resource  the FXML view resource
      * @return the controller of the module
      * @throws IOException
      */

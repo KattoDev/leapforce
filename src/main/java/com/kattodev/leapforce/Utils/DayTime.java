@@ -5,9 +5,9 @@ import java.time.LocalTime;
 public class DayTime {
     /**
      * Gets the local hour to make a greeting depending on the day time
-     * @return
-     * "Buenos dias" if its between 6:00 -- 12:00 |
-     * "Buenas tardes" if its between 13:00 -- 18:00 |
+     *
+     * @return "Buenos dias" if its between 6:00 -- 12:00 <br>
+     * "Buenas tardes" if its between 13:00 -- 18:00 <br>
      * "Buenas noches" if its between 19:00 -- 5:00
      */
     public String getDayGreeting() {
