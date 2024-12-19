@@ -1,17 +1,19 @@
 package com.kattodev.leapforce.Controllers.Components;
 
 import DebugHandler.Debug;
-import com.kattodev.leapforce.Utils.DayTime;
-import com.kattodev.leapforce.Utils.ActualUser;
+import com.kattodev.leapforce.Controllers.Dashboard;
+import com.kattodev.leapforce.Utils.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
-import java.util.Objects;
+import java.io.IOException;
 
 public class SideBar {
+    private final IconSetter iconSetter = new IconSetter();
+
     @FXML
     private Label lbl_greeting;
 
@@ -19,43 +21,69 @@ public class SideBar {
     private Label lbl_username;
 
     @FXML
-    private ImageView btn_settings;
-
-    @FXML
     private ImageView ico_user;
 
-    /**
-     * Initialize the labels
-     */
-    public void initialize(){
+    @FXML
+    private Pane btn_employees;
+
+    @FXML
+    private Pane btn_departments;
+
+    @FXML
+    private Pane btn_reports;
+
+    @FXML
+    private Pane btn_tasks_and_projects;
+
+    private Pane container = PersistentDashboard.getInstance().getDashboard().container_dashboardModule;
+
+    public void initialize() {
         lbl_greeting.setText(new DayTime().getDayGreeting());
         lbl_username.setText(ActualUser.getInstance().getUser().getName());
-        setIco_user("user");
+        iconSetter.set_SideBar_Ico_user("user", ico_user);
     }
 
-    public void btn_settings_clicked(MouseEvent mouseEvent) {
+
+    // ----------------------------------------------------------------------------------------------------------------
+    // click events
+    // ----------------------------------------------------------------------------------------------------------------
+    public void btn_user_clicked(MouseEvent mouseEvent) throws IOException {
         new Debug("Settings button clicked");
+        ModuleLoader.LoadModule(container, ModuleLoader.dashboardMainModule);
     }
 
-    public void btn_user_clicked(MouseEvent mouseEvent) {
+    public void btn_logout_clicked(MouseEvent mouseEvent) {
+        // TODO clear the actual session and exit app
+        new Debug("logout button clicked");
     }
 
+    public void btn_employees_clicked(MouseEvent mouseEvent) {
+        new Debug("employees button clicked");
+    }
+
+    public void btn_departments_clicked(MouseEvent mouseEvent) {
+        new Debug("departments button clicked");
+    }
+
+    public void btn_reports_clicked(MouseEvent mouseEvent) {
+        new Debug("reports button clicked");
+    }
+
+    public void btn_tasks_and_projects_clicked(MouseEvent mouseEvent) {
+        new Debug("task & projects button clicked");
+    }
+
+
+    // ----------------------------------------------------------------------------------------------------------------
+    // misc events
+    // ----------------------------------------------------------------------------------------------------------------
     public void btn_user_hover(MouseEvent mouseEvent) {
-        setIco_user("settings");
+        iconSetter.set_SideBar_Ico_user("settings", ico_user);
     }
 
     public void btn_user_notHover(MouseEvent mouseEvent) {
-        setIco_user("user");
+        iconSetter.set_SideBar_Ico_user("user", ico_user);
     }
 
 
-    private void setIco_user(String icon){
-        String iconRoute;
-        if (icon.equals("settings")) {
-            iconRoute = "/com/kattodev/leapforce/icons/cog.png";
-        } else {
-            iconRoute = "/com/kattodev/leapforce/icons/account.png";
-        }
-        ico_user.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(iconRoute))));
-    }
 }
