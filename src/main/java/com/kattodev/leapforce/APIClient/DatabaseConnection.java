@@ -1,31 +1,24 @@
 package com.kattodev.leapforce.APIClient;
 
 import DebugHandler.Debug;
-
 import com.kattodev.leapforce.Utils.Alerts;
 import com.kattodev.leapforce.Utils.SystemMessages;
-
 import javafx.scene.control.Alert;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 
 /**
- * Class to handle the {@link DatabaseConnection} within the app.
- * Uses MySQL to connect to database.
+ * Class to handle the {@link DatabaseConnection} within the app. <br>
+ * Uses MySQL to connect to database. <br>
  * The config file is {@link DatabaseConfig}.
  *
  * @author Katto
  * @version 2.0.0
  */
 public class DatabaseConnection {
-    private final DatabaseConfig databaseConfig = new DatabaseConfig();
-
     private static DatabaseConnection instance;
+    private final DatabaseConfig databaseConfig = new DatabaseConfig();
     public Connection connection = null;
     public ResultSet resultSet;
     public Statement statement;
@@ -64,7 +57,7 @@ public class DatabaseConnection {
                     Alert.AlertType.ERROR,
                     SystemMessages.InternErrorTitle,
                     "ERROR no se puede registrar el driver\n" +
-                            "Código de error: " + classNotFoundException.getMessage());
+                            SystemMessages.ErrorCode + classNotFoundException.getMessage());
             new Debug(classNotFoundException.getMessage());
         }
 
@@ -89,7 +82,7 @@ public class DatabaseConnection {
             Alerts.showAlert(Alert.AlertType.ERROR,
                     SystemMessages.InternErrorTitle,
                     "Error no se puede conectar a la base de datos\n" +
-                            "Código de error: " + sqlException.getMessage());
+                            SystemMessages.ErrorCode + sqlException.getMessage());
             new Debug("ERROR: no se puede conectar a la DB \n" + sqlException.getMessage());
         }
     }
@@ -114,7 +107,7 @@ public class DatabaseConnection {
                     Alert.AlertType.ERROR,
                     SystemMessages.InternErrorTitle,
                     "No se pudo cerrar la conexion con la base de datos.\n" +
-                            "Código de error: " + sqlException.getMessage());
+                            SystemMessages.ErrorCode + sqlException.getMessage());
             new Debug("ERROR: No se pudo cerrar la conexion con DB " + sqlException.getMessage());
         }
     }

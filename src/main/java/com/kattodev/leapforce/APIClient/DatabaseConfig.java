@@ -1,8 +1,5 @@
 package com.kattodev.leapforce.APIClient;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 /**
  * Class to simplify the configuration with the database
  */
