@@ -12,6 +12,10 @@ import java.io.IOException;
 
 public class Dashboard extends Application {
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
@@ -27,10 +31,5 @@ public class Dashboard extends Application {
         stage.show();
 
         new Debug(ActualUser.getInstance().getUser().toString());
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }
