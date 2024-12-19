@@ -2,14 +2,15 @@ package com.kattodev.leapforce.Controllers;
 
 import DebugHandler.Debug;
 import com.kattodev.leapforce.APIClient.DatabaseConnection;
-import com.kattodev.leapforce.Apps.Dashboard;
 import com.kattodev.leapforce.Models.User;
 import com.kattodev.leapforce.Utils.Alerts;
 import com.kattodev.leapforce.Utils.SystemMessages;
+import com.kattodev.leapforce.Utils.WallpaperSetter;
+import com.kattodev.leapforce.Utils.WindowHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -20,6 +21,18 @@ public class Login {
     @FXML
     private com.gluonhq.charm.glisten.control.TextField txt_password;
 
+    @FXML
+    private ImageView img_background;
+
+
+    public void initialize() {
+        WallpaperSetter.setWallpaper(img_background);
+    }
+
+
+    // ----------------------------------------------------------------------------------------------------------------
+    // click events
+    // ----------------------------------------------------------------------------------------------------------------
     public void btn_login_click(MouseEvent mouseEvent) throws IOException {
         new Debug("Login button Click");
 
@@ -28,27 +41,15 @@ public class Login {
 
         User tempUser = new User(email, password);
 
-        if (!(tempUser.Auth(DatabaseConnection.getInstance().connection))) {
-            Alerts.showAlert(Alert.AlertType.WARNING, SystemMessages.LoginErrorTitle, SystemMessages.LoginErrorBody);
+        boolean isAuth = tempUser.Auth(DatabaseConnection.getInstance().connection);
+
+        if (!isAuth) {
+            Alerts.showAlert(
+                    Alert.AlertType.WARNING,
+                    SystemMessages.LoginErrorTitle,
+                    SystemMessages.LoginErrorBody);
         } else {
-            // dispose the current Stage
-            Stage currentStage = (Stage) ((javafx.scene.Node) mouseEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
-            // Launch the dashboard
-            try {
-                Dashboard dashboardScene = new Dashboard();
-                Stage dashboardStage = new Stage();
-                dashboardScene.start(dashboardStage);
-
-            } catch (NullPointerException nullPointerException) {
-                Alerts.showAlert(
-                        Alert.AlertType.ERROR,
-                        SystemMessages.InternErrorTitle,
-                        "Se ha producido un error con la aplicación\n" +
-                        "Código de error:\n\n" + nullPointerException.getCause());
-                new Debug(nullPointerException.getMessage());
-            }
+            WindowHandler.LoadDashboardWindow(mouseEvent);
         }
     }
 }

@@ -7,49 +7,41 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.kattodev.leapforce.Controllers.Login">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kattodev.leapforce.Controllers.Login">
     <children>
-        <Pane layoutX="150.0" layoutY="104.0" prefHeight="50.0" prefWidth="300.0" styleClass="input"
-              stylesheets="@../css/login.css">
+      <ImageView fx:id="img_background" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" />
+        <Pane layoutX="150.0" layoutY="103.0" prefHeight="50.0" prefWidth="300.0" styleClass="input" stylesheets="@../css/login.css">
             <children>
-                <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../icons/account.png"/>
+                        <Image url="@../icons/account.png" />
                     </image>
                 </ImageView>
-                <TextField fx:id="txt_email" floatText="Correo:" layoutX="59.0" layoutY="7.0" prefHeight="28.0"
-                           prefWidth="230.0"/>
+                <TextField fx:id="txt_email" floatText="Correo:" layoutX="59.0" layoutY="7.0" prefHeight="28.0" prefWidth="230.0" />
             </children>
         </Pane>
-        <Pane layoutX="150.0" layoutY="186.0" prefHeight="50.0" prefWidth="300.0" styleClass="input"
-              stylesheets="@../css/login.css">
+        <Pane layoutX="150.0" layoutY="175.0" prefHeight="50.0" prefWidth="300.0" styleClass="input" stylesheets="@../css/login.css">
             <children>
-                <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../icons/eye.png"/>
+                        <Image url="@../icons/eye.png" />
                     </image>
                 </ImageView>
-                <TextField fx:id="txt_password" floatText="Contraseña:" layoutX="60.0" layoutY="7.0" prefHeight="28.0"
-                           prefWidth="230.0"/>
+                <TextField fx:id="txt_password" floatText="Contraseña:" layoutX="60.0" layoutY="7.0" prefHeight="28.0" prefWidth="230.0" />
             </children>
         </Pane>
-        <Pane fx:id="btn_login" layoutX="150.0" layoutY="246.0" onMouseClicked="#btn_login_click" prefHeight="50.0"
-              prefWidth="300.0" styleClass="button" stylesheets="@../css/login.css">
+        <Pane fx:id="btn_login" layoutX="150.0" layoutY="246.0" onMouseClicked="#btn_login_click" prefHeight="50.0" prefWidth="300.0" styleClass="button" stylesheets="@../css/login.css">
             <children>
                 <Label layoutX="76.0" layoutY="8.0" text="Iniciar sesión">
                     <font>
-                        <Font size="24.0"/>
+                        <Font size="24.0" />
                     </font>
                 </Label>
             </children>
         </Pane>
-        <Label layoutX="235.0" layoutY="56.0" text="LEAPFORCE">
+        <Label layoutX="230.0" layoutY="46.0" text="LEAPFORCE">
             <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
             </font>
         </Label>
     </children>
