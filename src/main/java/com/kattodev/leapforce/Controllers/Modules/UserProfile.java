@@ -2,12 +2,17 @@ package com.kattodev.leapforce.Controllers.Modules;
 
 import DebugHandler.Debug;
 import com.kattodev.leapforce.APIClient.DatabaseConnection;
+import com.kattodev.leapforce.Apps.EditUserInfo;
 import com.kattodev.leapforce.Models.Department;
 import com.kattodev.leapforce.Models.User;
 import com.kattodev.leapforce.Utils.ActualUser;
+import com.kattodev.leapforce.Utils.Alerts;
+import com.kattodev.leapforce.Utils.SystemMessages;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class UserProfile {
 
@@ -53,5 +58,18 @@ public class UserProfile {
 
     public void btn_login_click(MouseEvent mouseEvent) {
         new Debug("Clicked");
+
+        try {
+            EditUserInfo scene = new EditUserInfo();
+            Stage stage = new Stage();
+            scene.start(stage);
+        } catch (Exception exception) {
+            Alerts.showAlert(
+                    Alert.AlertType.ERROR,
+                    SystemMessages.InternErrorTitle,
+                    "Se ha producido un error con la aplicación\n" +
+                            SystemMessages.ErrorCode + exception.getCause());
+            new Debug(exception.getMessage());
+        }
     }
 }

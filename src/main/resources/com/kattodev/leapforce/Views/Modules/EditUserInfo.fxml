@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kattodev.leapforce.Controllers.Modules.EditUserInfo">
+   <children>
+      <Label layoutX="289.0" layoutY="61.0" text="Editar Información">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_name" floatText="Nombre completo:" layoutX="90.0" layoutY="122.0" prefWidth="600.0" />
+      <TextField fx:id="txt_address" floatText="Dirección de domicilio:" layoutX="90.0" layoutY="176.0" prefWidth="600.0" />
+      <DatePicker fx:id="txt_birthday" layoutX="90.0" layoutY="240.0" prefWidth="600.0" promptText="Fecha de cumpleaños:" />
+      <TextField fx:id="txt_phone" floatText="Número telefonico:" layoutX="90.0" layoutY="284.0" prefWidth="600.0" />
+      <TextField fx:id="txt_email" floatText="Correo electrónico:" layoutX="90.0" layoutY="338.0" prefWidth="600.0" />
+      <TextField fx:id="txt_password" floatText="Contraseña:" layoutX="90.0" layoutY="392.0" prefWidth="600.0" />
+      <Pane fx:id="btn_save" layoutX="315.0" layoutY="446.0" prefHeight="30.0" prefWidth="150.0" onMouseClicked="#btn_save_click" styleClass="button" stylesheets="@../../css/login.css">
+         <children>
+            <Label layoutX="21.0" layoutY="8.0" text="Editar información" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
