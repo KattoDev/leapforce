@@ -7,6 +7,7 @@ public class WindowSize {
     private static final int[] componentSideBar = {260, 720};
 
     private static final int[] moduleUserProfile = {1020, 720};
+    private static final int[] moduleEditUserInfo = {800, 600};
 
 
     public static int[] getLogin() {
@@ -25,5 +26,9 @@ public class WindowSize {
 
     public static int[] getModuleUserProfile() {
         return moduleUserProfile;
+    }
+
+    public static int[] getModuleEditUserInfo() {
+        return moduleEditUserInfo;
     }
 }
